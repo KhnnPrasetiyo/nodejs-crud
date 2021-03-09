@@ -4,7 +4,7 @@ const { response, request } = require('express')
 
 exports.homeRoutes = (req, res) => {
 
-    axios.get('https://agile-earth-40506.herokuapp.com/api/users')
+    axios.get('https://khnn-nodejs-crud.herokuapp.com/api/users')
         .then(function (response) {
             res.render('index', { users: response.data })
         })
@@ -19,7 +19,7 @@ exports.addUserRoute = (request, response) => {
 }
 exports.updateUserRoute = (req, res) => {
 
-    axios.get('https://agile-earth-40506.herokuapp.com/api/users', { params: { id: req.query.id } })
+    axios.get('https://khnn-nodejs-crud.herokuapp.com/api/users', { params: { id: req.query.id } })
         .then(function (userdata) {
             res.render("update_user", { user: userdata.data })
         })

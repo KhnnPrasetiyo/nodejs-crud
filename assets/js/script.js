@@ -22,7 +22,7 @@ $('#update_user').submit(function (event) {
     const id = urlParams.get('id')
 
     var request = {
-        'url': `https://agile-earth-40506.herokuapp.com/api/users/${id}`,
+        'url': `https://khnn-nodejs-crud.herokuapp.com/api/users/${id}`,
         'method': 'PUT',
         'data': data
     }
@@ -51,7 +51,7 @@ if (window.location.pathname == '/') {
     $ondelete.click(function () {
         var id = $(this).attr('data-id')
         var request = {
-            'url': `https://agile-earth-40506.herokuapp.com/api/users/${id}`,
+            'url': `https://khnn-nodejs-crud.herokuapp.com/api/users/${id}`,
             'method': 'DELETE'
         }
 
