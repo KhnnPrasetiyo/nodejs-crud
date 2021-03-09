@@ -1,19 +1,19 @@
 
 
-$('#add_user').submit(function(event){
+$('#add_user').submit(function (event) {
 
     alert('Data will be upload ..')
 
 })
 
-$('#update_user').submit(function(event) {
-    
+$('#update_user').submit(function (event) {
+
     event.preventDefault()
 
     var unidexed_arr = $(this).serializeArray();
     var data = {}
 
-    $.map(unidexed_arr, function(n, i) {
+    $.map(unidexed_arr, function (n, i) {
         data[n['name']] = n['value']
     })
 
@@ -22,47 +22,47 @@ $('#update_user').submit(function(event) {
     const id = urlParams.get('id')
 
     var request = {
-        'url' : `http://localhost:3000/api/users/${id}`,
-        'method' : 'PUT',
-        'data' : data
+        'url': `https://agile-earth-40506.herokuapp.com/api/users/${id}`,
+        'method': 'PUT',
+        'data': data
     }
-        
-        var yakin = confirm("Yakin dengan data yg anda masukan ?");
 
-        if (yakin) {
-           
-            $.ajax(request).done(function(response) {
-                window.location = "/";
-            })
-            
-        } else {
-            alert('Silahkan Lakukan perubahan lagi jika diperlukan')
-        }
-       
+    var yakin = confirm("Yakin dengan data yg anda masukan ?");
+
+    if (yakin) {
+
+        $.ajax(request).done(function (response) {
+            window.location = "/";
+        })
+
+    } else {
+        alert('Silahkan Lakukan perubahan lagi jika diperlukan')
+    }
 
 
-    
+
+
 
 })
 
-if(window.location.pathname == '/') {
+if (window.location.pathname == '/') {
     $ondelete = $('.table tbody td a.delete')
 
-    $ondelete.click(function(){
+    $ondelete.click(function () {
         var id = $(this).attr('data-id')
         var request = {
-            'url' : `http://localhost:3000/api/users/${id}`,
-            'method' : 'DELETE'
+            'url': `https://agile-earth-40506.herokuapp.com/api/users/${id}`,
+            'method': 'DELETE'
         }
 
-        if(confirm("Do you really to delete users")) {
-            $.ajax(request).done(function(response) {
+        if (confirm("Do you really to delete users")) {
+            $.ajax(request).done(function (response) {
                 location.reload()
             })
         }
     })
 }
 
-$('a#reload').click(function(){
+$('a#reload').click(function () {
     location.reload();
 })
